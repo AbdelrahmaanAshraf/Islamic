@@ -94,9 +94,6 @@ class _HomeViewState extends State<HomeView> {
                     height: 15.h,
                   ),
                   const SearchSuraWidget(),
-                  SizedBox(
-                    height: 5.h,
-                  ),
                   cubit.recentlyQuranModel?.recentQuranList == null
                       ? const SizedBox()
                       : const MostRecentlyWidget(),

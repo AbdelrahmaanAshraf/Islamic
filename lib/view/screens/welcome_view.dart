@@ -20,6 +20,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     controller.dispose();
     super.dispose();
   }
+
   //late final Color? color;
 
   @override
@@ -60,7 +61,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 currentPage == controller.initialPage
-                    ? SizedBox(width: 50.w,)
+                    ? SizedBox(
+                        width: 50.w,
+                      )
                     : TextButton(
                         onPressed: () {
                           setState(() {
@@ -76,21 +79,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           style: customTextStyle(color: kPrimaryColor),
                         ),
                       ),
+
                 SmoothPageIndicator(
+
                   controller: controller, // PageController
                   count: 3,
                   effect: const ExpandingDotsEffect(
                     activeDotColor: kPrimaryColor,
-                  ), // your preferred effect
+                  ),
+                  onDotClicked: (index) {
+                    controller.jumpToPage(index);
+                    setState(() {});
+                  },// your preferred effect
                 ),
                 TextButton(
                   onPressed: () {
-                    setState(() {
-                      controller.nextPage(
-                        duration: const Duration(milliseconds: 5),
-                        curve: Curves.easeInOut,
-                      );
-                    });
+                    controller.nextPage(
+                      duration: const Duration(milliseconds: 5),
+                      curve: Curves.easeInOut,
+                    );
+                    setState(() {});
                   },
                   child: Text(
                     'Next',
@@ -104,12 +112,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
-  getCurrentIndex(){
-    setState(() {
-      controller.addListener(() {
+onChange(int index){
+  controller.jumpToPage(index);
+  currentPage = controller.page!.round();
+  setState(() {});
+  print(currentPage);
+}
+  getCurrentIndex() {
+    controller.addListener(
+      () {
         currentPage = controller.page!.round();
-      },);
-    });
+      },
+    );
+    setState(() {});
     //currentPage = controller.page!.round();
   }
 }
