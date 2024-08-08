@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islamic/model/helper/const.dart';
-import 'package:islamic/network/dio_helper.dart';
+import 'package:islamic/model/network/dio_helper.dart';
 import 'package:islamic/view/screens/home_view.dart';
 import 'package:islamic/view/screens/splash_screens/splash_screen.dart';
 import 'package:islamic/view/widget/quran_widgets/SuraWidgets/sura_view.dart';

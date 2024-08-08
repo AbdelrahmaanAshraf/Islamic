@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:islamic/network/end_points.dart';
+import 'package:islamic/model/network/end_points.dart';
 
 class DioHelper {
   static late Dio dio;

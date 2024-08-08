@@ -55,9 +55,12 @@ class QuranView extends StatelessWidget {
                   ),
                 ),
                 cubit.quranModel == null
-                    ? const Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      )
+                    ? const SizedBox(
+                  height: 500,
+                      child: Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        ),
+                    )
                     : const Expanded(
                         child: SuraWidgetListView(),
                       ),
