@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:islamic/model/helper/const.dart';
 
-class SearchSuraWidget extends StatelessWidget {
-  const SearchSuraWidget({super.key});
+class CustomSearchWidget extends StatelessWidget {
+  const CustomSearchWidget({super.key, required this.icon, required this.searchHint});
+  final IconData icon ;
+  final String searchHint ;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ class SearchSuraWidget extends StatelessWidget {
       child: TextField(
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
-          prefixIcon:const Icon(FontAwesomeIcons.bookQuran,color: kPrimaryColor,),
-          hintText: 'Sura Name',
+          prefixIcon: Icon(icon as IconData?,color: kPrimaryColor,),
+          hintText: searchHint,
           enabledBorder: textFieldBorderDesign(),
           focusedBorder: textFieldBorderDesign()
         ),

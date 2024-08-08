@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,5 +20,5 @@ DecorationImage bottomMosqueImage() {
   return DecorationImage(
       image: Image.asset('assets/images/Mosque-02.png').image,
       alignment: Alignment.bottomCenter,
-      opacity: 0.2);
+      opacity: 0.6);
 }

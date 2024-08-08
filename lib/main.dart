@@ -6,6 +6,7 @@ import 'package:islamic/network/dio_helper.dart';
 import 'package:islamic/view/screens/home_view.dart';
 import 'package:islamic/view/screens/splash_screens/splash_screen.dart';
 import 'package:islamic/view/widget/quran_widgets/SuraWidgets/sura_view.dart';
+import 'package:islamic/view_model/cubit/Hadith/hadith_cubit.dart';
 import 'package:islamic/view_model/cubit/Quran/quran_cubit.dart';
 import 'package:islamic/view_model/local/shared_preference/shared_preference.dart';
 
@@ -31,7 +32,10 @@ class Islamic extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) => QuranCubit()..getQuran(),
-            )
+            ),
+            BlocProvider(
+              create: (context) => HadithCubit()..getHadith(),
+            ),
           ],
           child: MaterialApp(
             theme: ThemeData(

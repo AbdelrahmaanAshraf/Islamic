@@ -4,20 +4,22 @@ import 'package:islamic/model/helper/const.dart';
 
 class ViewDataRowDesign extends StatelessWidget {
   const ViewDataRowDesign({
-    super.key, required this.tilte,
+    super.key, required this.tilte, required this.leftImage, required this.rightImage, required this.textColor,
   });
-  final String tilte ;
+  final String tilte , leftImage ,rightImage;
+  final Color textColor;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Image.asset('assets/images/Mask group.png'),
+        Image.asset(leftImage),
         Text(
+          textDirection: TextDirection.rtl,
           tilte,
-          style: customTextStyle(color: kPrimaryColor, size: 24.sp),
+          style: customTextStyle(color: textColor, size: 24.sp,weight: FontWeight.bold),
         ),
-        Image.asset('assets/images/Mask group2.png'),
+        Image.asset(rightImage),
       ],
     );
   }

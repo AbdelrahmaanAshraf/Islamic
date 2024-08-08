@@ -48,7 +48,9 @@ class SuraView extends StatelessWidget {
               child: Column(
                 children: [
                   ViewDataRowDesign(
-                    tilte: surahs.name ?? 'wdw',
+                    tilte: surahs.name ?? '',
+                    leftImage: 'assets/images/Mask group.png',
+                    rightImage: 'assets/images/Mask group2.png', textColor: kPrimaryColor,
                   ),
                   SizedBox(
                     height: 30.h,
