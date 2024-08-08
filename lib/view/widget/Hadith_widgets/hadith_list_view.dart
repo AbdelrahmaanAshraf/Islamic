@@ -16,13 +16,17 @@ class HadithListView extends StatelessWidget {
     return BlocConsumer<HadithCubit, HadithStats>(
       listener: (context, state) {},
       builder: (context, state) {
-        return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => HadithWidget(
-            items: cubit.hadithModel?.items?[index] ?? Items(),
-          ),
-          itemCount: cubit.hadithModel?.items?.length ?? 5,
-        );
+        return cubit.hadithModel == null
+            ? const Center(
+                child: CircularProgressIndicator.adaptive(),
+              )
+            : ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => HadithWidget(
+                  items: cubit.hadithModel?.items?[index] ?? Items(),
+                ),
+                itemCount: cubit.hadithModel?.items?.length ?? 5,
+              );
       },
     );
   }
