@@ -7,7 +7,7 @@ import 'package:islamic/Core/data/network/dio_helper.dart';
 import 'package:islamic/Features/bottom_navigate_bar_home_view/view/home_view.dart';
 import 'package:islamic/Features/hadith_screen/view/widget/hadith_page_view.dart';
 import 'package:islamic/Features/hadith_screen/view_model/cubit/Hadith/hadith_cubit.dart';
-import 'package:islamic/Features/quran_screen/view/screen/sura_view.dart';
+import 'package:islamic/Features/quran_screen/view/widget/SuraWidgets/sura_view.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_cubit.dart';
 import 'package:islamic/Features/splash_screen/view/splash_screen.dart';
 
