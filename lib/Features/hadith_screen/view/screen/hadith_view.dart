@@ -10,33 +10,39 @@ class HadithView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Stack(
-      clipBehavior: Clip.none,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       children: [
-        Positioned(
-          right: -100.w,
-          top: 2.h,
-          left: -100.w,
-          bottom: 5.h,
+        PositionedDirectional(
+          top: -height * .0001,
+          bottom: - height * .0001,
+          start: -width * .1,
+          end: -width * .1,
           child: Opacity(
             opacity: .1,
             child: Image.asset(
               'assets/images/vertical-shot-hassan-ii-mosque-casablanca-morocco.png',
-              fit: BoxFit.scaleDown,
+              fit: BoxFit.cover,
             ),
           ),
         ),
         Column(
           children: [
-            const Center(child: IslamicMosqueWidget()),
+            const Center(
+              child: IslamicMosqueWidget(),
+            ),
             SizedBox(height: 10.h),
             const CustomSearchWidget(
                 icon: FontAwesomeIcons.bookOpen, searchHint: 'Hadith Name'),
-            const Expanded(child:  HadithListView()),
+            SizedBox(height: 8.h),
+            const Expanded(
+              child: HadithListView(),
+            ),
           ],
         ),
       ],
     );
   }
 }
-

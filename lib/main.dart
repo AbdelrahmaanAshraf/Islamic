@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islamic/Core/components/helper/const.dart';
+import 'package:islamic/Core/components/helper/observer.dart';
 import 'package:islamic/Core/data/local/shared_preference/shared_preference.dart';
 import 'package:islamic/Core/data/network/dio_helper.dart';
 import 'package:islamic/Features/bottom_navigate_bar_home_view/view/home_view.dart';
@@ -9,9 +10,12 @@ import 'package:islamic/Features/hadith_screen/view/widget/hadith_page_view.dart
 import 'package:islamic/Features/hadith_screen/view_model/cubit/Hadith/hadith_cubit.dart';
 import 'package:islamic/Features/quran_screen/view/widget/SuraWidgets/sura_view.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_cubit.dart';
+import 'package:islamic/Features/sebha_screen/view_model/cubit/shbha_cubit.dart';
+import 'package:islamic/Features/splash_screen/view/custom_splash_screen.dart';
 import 'package:islamic/Features/splash_screen/view/splash_screen.dart';
 
 Future<void> main() async {
+  Bloc.observer = MyBlocObserver();
   DioHelper.init();
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreference.sharedInit();
@@ -37,6 +41,7 @@ class Islamic extends StatelessWidget {
             BlocProvider(
               create: (context) => HadithCubit()..getHadith(),
             ),
+            BlocProvider(create: (context) => SebhaCubit(),)
           ],
           child: MaterialApp(
             theme: ThemeData(

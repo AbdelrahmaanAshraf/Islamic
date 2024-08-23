@@ -10,12 +10,13 @@ import 'package:islamic/Features/quran_screen/view/widget/SuraWidgets/sura_widge
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_cubit.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_stats.dart';
 
-
 class QuranView extends StatelessWidget {
   const QuranView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     var cubit = QuranCubit.get(context);
     return BlocConsumer<QuranCubit, QuranStats>(
       listener: (context, state) {},
@@ -23,16 +24,18 @@ class QuranView extends StatelessWidget {
         return Stack(
           clipBehavior: Clip.none,
           children: [
-            Positioned(
-              right: -100.w,
-              top: 2.h,
-              left: -100.w,
-              bottom: 5.h,
+            PositionedDirectional(
+              end: -width * .22,
+              top: height * .05,
+              start: -width * .22,
+              bottom: height * .01,
               child: Opacity(
-                  opacity: .1,
-                  child: Image.asset(
-                    'assets/images/taj-mahal-agra-india.png',
-                  )),
+                opacity: .1,
+                child: Image.asset(
+                  'assets/images/taj-mahal-agra-india.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +46,10 @@ class QuranView extends StatelessWidget {
                 SizedBox(
                   height: 15.h,
                 ),
-                const CustomSearchWidget(icon: FontAwesomeIcons.bookQuran,searchHint: 'Sura Name',),
+                const CustomSearchWidget(
+                  icon: FontAwesomeIcons.bookQuran,
+                  searchHint: 'Sura Name',
+                ),
                 cubit.recentlyQuranModel?.recentQuranList == null
                     ? const SizedBox()
                     : const MostRecentlyWidget(),
@@ -57,11 +63,11 @@ class QuranView extends StatelessWidget {
                 ),
                 cubit.quranModel == null
                     ? const SizedBox(
-                  height: 500,
-                      child: Center(
+                        height: 500,
+                        child: Center(
                           child: CircularProgressIndicator.adaptive(),
                         ),
-                    )
+                      )
                     : const Expanded(
                         child: SuraWidgetListView(),
                       ),

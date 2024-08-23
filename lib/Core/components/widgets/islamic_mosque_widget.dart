@@ -9,15 +9,17 @@ class IslamicMosqueWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.only(top: 20.h),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Image.asset('assets/images/Mosque-01 1.png'),
-          Positioned(
-              left: 45.w,
-              top: 55.h,
+          PositionedDirectional(
+              start: width * 0.13,
+              top: height * 0.08,
               child: const IslamicText())
         ],
       ),

@@ -7,14 +7,19 @@ import 'package:islamic/Features/hadith_screen/view/widget/hadith_page_view.dart
 
 class HadithWidget extends StatelessWidget {
   const HadithWidget({
-    super.key, required this.items,
+    super.key,
+    required this.items,
   });
-final Items items;
+
+  final Items items;
+
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: (){
-        Navigator.pushNamed(context, HadithPageView.id,arguments: items);
+      onTap: () {
+        Navigator.pushNamed(context, HadithPageView.id, arguments: items);
       },
       child: Container(
         padding: EdgeInsets.all(10.sp),
@@ -28,8 +33,10 @@ final Items items;
           clipBehavior: Clip.none,
           children: [
             PositionedDirectional(
-              start: 40.w,
-              top: 50.h,
+              start: width * 0.08,
+              top: height * .07,
+              bottom: height * .07,
+              end: width * 0.08,
               child: Opacity(
                 opacity: 0.3,
                 child: Image.asset(
@@ -41,7 +48,7 @@ final Items items;
             SingleChildScrollView(
               child: Column(
                 children: [
-                   ViewDataRowDesign(
+                  ViewDataRowDesign(
                     tilte: 'الحد يث ${items.number.toString()}',
                     leftImage: 'assets/images/Cornerr 2.png',
                     rightImage: 'assets/images/Cornerr 1.png',
@@ -51,14 +58,18 @@ final Items items;
                     height: 5.h,
                   ),
                   Container(
-                    width: 270.w,
+                    width: width * .7,
                     padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Text(
-                      items.arab ?? '',
-                      style: customTextStyle(
-                          size: 16.sp, color: Colors.black, weight: FontWeight.w700),
-                      softWrap: true,
-                      textDirection: TextDirection.rtl,
+                    child: Center(
+                      child: Text(
+                        items.arab ?? '',
+                        style: customTextStyle(
+                            size: 16.sp,
+                            color: Colors.black,
+                            weight: FontWeight.w700),
+                        softWrap: true,
+                        textDirection: TextDirection.rtl,
+                      ),
                     ),
                   )
                 ],

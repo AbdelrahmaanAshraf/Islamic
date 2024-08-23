@@ -7,7 +7,6 @@ import 'package:islamic/Features/quran_screen/view/screen/sura_view.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_cubit.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_stats.dart';
 
-
 class SuraListTileWidget extends StatelessWidget {
   const SuraListTileWidget({super.key, required this.surahs});
 
@@ -16,14 +15,15 @@ class SuraListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = QuranCubit.get(context);
-    return BlocConsumer<QuranCubit, QuranStats>(
-      listener: (context, state) {},
+    return BlocBuilder<QuranCubit, QuranStats>(
       builder: (context, state) {
         return ListTile(
           onTap: () {
             Navigator.pushNamed(context, SuraView.id, arguments: surahs);
-            cubit.setRecentlyQuran(name:  surahs.name ?? 'الفاتحه',
-               engName:  surahs.englishName ?? 'Al-Fatiha',number:  surahs.number?? 1);
+            cubit.setRecentlyQuran(
+                name: surahs.name ?? 'الفاتحه',
+                engName: surahs.englishName ?? 'Al-Fatiha',
+                number: surahs.number ?? 1);
           },
           leading: Container(
             width: 50.w,

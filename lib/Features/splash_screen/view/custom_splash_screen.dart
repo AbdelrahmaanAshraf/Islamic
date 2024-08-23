@@ -7,9 +7,10 @@ class CustomSplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
               image: Image.asset('assets/images/background.png').image,
@@ -18,7 +19,7 @@ class CustomSplashScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 35.h,
+              height: height * 0.04,
             ),
             Image.asset('assets/images/Mosque-01 1.png'),
             Stack(
@@ -29,93 +30,32 @@ class CustomSplashScreen extends StatelessWidget {
                     Image.asset('assets/images/Shape-07 1.png'),
                   ],
                 ),
-                Positioned(
-                  left: 100.w,
-                  top: 100.h,
+                PositionedDirectional(
+                  start: width * 0.25,
+                  top: height * 0.15,
                   child: Column(
                     children: [
                       Image.asset(
                         'assets/images/OBJECTS.png',
                       ),
-                      const IslamicText()
+                      const IslamicText(),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 160.h,),
+            SizedBox(
+              height: height * 0.22,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Image.asset('assets/images/Shape-04 1.png'),
               ],
             )
-
           ],
         ),
       ),
     );
   }
 }
-// Stack(
-// children:[
-// Container(
-// width: double.infinity,
-// decoration: BoxDecoration(
-// image: DecorationImage(
-// image: Image.asset('assets/images/background.png').image,
-// fit: BoxFit.cover),
-// ),
-// ),
-// Positioned(
-// left:55.w,
-// child: Column(
-// children: [
-// SizedBox(
-// height: 35.h,
-// ),
-// Image.asset('assets/images/Mosque-01 1.png'),
-// ],
-// ),
-// ),
-// SizedBox(
-// height: 10.h,
-// ),
-// Positioned(
-// top: 160.h,
-// child: Row(
-// children: [
-// Image.asset('assets/images/Shape-07 1.png'),
-// ],
-// ),
-// ),
-// Positioned(
-// left: 100.w,
-// top: 250.h,
-// child: Center(
-// child: Column(
-// children: [
-// Image.asset(
-// 'assets/images/OBJECTS.png',
-// ),
-// Text(
-// 'Islami',
-// style: TextStyle(
-// fontSize: 80.sp, color: kPrimaryColor, fontFamily: 'Kamali'),
-// ),
-// ],
-// ),
-// ),
-// ),
-// Positioned(
-// top: 450.h,
-// left: 270.w,
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.end,
-// children: [
-// Image.asset('assets/images/Shape-04 1.png')
-// ],
-// ),
-// )
-// ]
-// ),

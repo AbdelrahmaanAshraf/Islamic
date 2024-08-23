@@ -5,7 +5,6 @@ import 'package:islamic/Features/quran_screen/view/widget/SuraWidgets/sura_list_
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_cubit.dart';
 import 'package:islamic/Features/quran_screen/view_model/cubit/Quran/quran_stats.dart';
 
-
 class SuraWidgetListView extends StatelessWidget {
   const SuraWidgetListView({super.key});
 

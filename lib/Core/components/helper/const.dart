@@ -5,7 +5,7 @@ const Color kPrimaryColor = Color(0xffE2BE7F);
 
 const Color kYellowColor = Color(0xffF6AF58);
 const Color kCardColor = Color(0xff5D8082);
-
+const String quranUrl= 'https://api.alquran.cloud/v1/quran/quran-uthmani';
 textFieldBorderDesign() {
   return OutlineInputBorder(
       borderSide: const BorderSide(color: kPrimaryColor),
